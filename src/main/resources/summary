@@ -1,0 +1,81 @@
+
+
+
+
+Create TABLE Book
+(
+ id int not null auto_increment primary key,
+publish_date timestamp,
+quantity int not null,
+title varchar(255)
+
+);
+
+Create TABLE Author
+(
+ id int not null auto_increment primary key,
+ name varchar(255),
+ surname varchar(255),
+ email varchar(255) ,
+ password varchar(255)
+
+);
+INSERT INTO Book(id,publish_date,quantity,title)
+VALUES(2,sysdate(),265,'Дизайн карьеры и жизни');
+
+INSERT INTO Author(id,name,surname,email,password)
+VALUES(2,'Bermet','Matkurbanova','bermet@gmail.com','123');
+
+INSERT INTO Author(id,name,surname,email,password)
+VALUES(1,'Aizhan','Arapova','aizhan@gmail.com','456');
+
+
+
+
+2) localhost:8080/bookPost - добавляет новую книгу. POST запрос с JSON
+Пример JSON:
+{
+	"title":"Book",
+	"publish_date":"2020-04-20 11:58:55.033",
+	"quantity":"10"
+}
+3) localhost:8080/bookDelete - удаляет книгу по ID. DELETE запрос с JSON
+Пример JSON:
+{
+	"id":"1"
+}
+4) localhost:8080/bookPut - изменяет книгу по ID. PUT запрос с JSON
+Пример JSON:
+{
+	"id":"1",
+	"title":"Bermet",
+	"publish_date":"2020-04-20 11:58:55.033",
+	"quantity":"20"
+}
+
+Класс Author отвечает на следующие запросы:
+1) localhost:8080/authorGet - выводит весь список авторов
+2) localhost:8080/authorPost - добавляет автора. POST запрос с JSON
+Пример JSON:
+{
+	"name":"Bermet",
+	"surname":"Matkurbanova",
+	"email":"bermetmatkurbanova@gmail.com",
+	"password":"password"
+}
+3) localhost:8080/authorDelete - удаляет автора по ID. DELETE запрос с JSON
+Пример JSON:
+{
+	"id":"2"
+}
+
+
+4) localhost:8080/authorPut - изменяет автора по ID. PUT запрос с JSON
+Пример JSON:
+{
+	"id":"2",
+	"name":"Aizhan",
+	"surname":"Arapova",
+	"email":"arapova@mail.ru",
+	"password":"arapova"
+}
